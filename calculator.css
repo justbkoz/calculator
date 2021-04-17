@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(13, 0, 126);
+}
+#title {
+    text-align:center;
+    color:rgb(0, 118, 126)
+    
+}
+#calcContainer {
+    background-color: cadetblue;
+    margin: auto;
+    width: 50vmin;
+    height: 70vmin;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+    gap: .5% .5%;
+    grid-template-areas:
+        'disp disp disp disp'
+        '. . . .'
+        '. . . .'
+        '. . . .'
+        '. . . .'
+        'zero zero . .';
+}
+
+#inputBox {
+    grid-area: disp;
+}
+
+#zero { 
+    grid-area: zero; 
+}
+    
+
