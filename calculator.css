@@ -10,7 +10,9 @@ body {
     background-color: cadetblue;
     margin: auto;
     width: 50vmin;
+    min-width: 280px;
     height: 70vmin;
+    min-height: 400px;
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -25,12 +27,28 @@ body {
         'zero zero . .';
 }
 
-#inputBox {
+#displayBox {
     grid-area: disp;
+    display: block;   
+    text-align: right;
+    background-color: azure;
+    padding-top: 5%;
+    padding-right: 5%;
+}
+/* can still type in too many characters */
+#upperDisplay{ 
+    font-size: 2vmin;
+    overflow: hidden;
+}
+
+#lowerDisplay{
+    font-size: 8vmin;
+    overflow: hidden;
+    
 }
 
 #zero { 
     grid-area: zero; 
 }
-    
+
 

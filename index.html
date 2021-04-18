@@ -12,26 +12,29 @@
         Calculator
     </h1>
     <div id='calcContainer'>
-        <input id='inputBox' type="text">
-        <button id='clear' class='buttons' class='topThree' type='button'>clear</button>
-        <button id='posNeg' class='buttons' class='topThree' type='button'>+/-</button>
-        <button id='percent' class='buttons' class='topThree' type='button'>%</button>
-        <button id='divide' class='buttons' class='operators' type='button'>/</button>
-        <button id='seven' class='buttons' class='nums' type='button'>7</button>
-        <button id='eight' class='buttons' class='nums' type='button'>8</button>
-        <button id='nine' class='buttons' class='nums' type='button'>9</button>
-        <button id='multiply' class='buttons' class='operators' type='button'>X</button>
-        <button id='four' class='buttons' class='nums' type='button'>4</button>
-        <button id='five' class='buttons' class='nums' type='button'>5</button>
-        <button id='six' class='buttons' class='nums' type='button'>6</button>
-        <button id='minus' class='buttons' class='operators' type='button'>-</button>
-        <button id='one' class='buttons' class='nums' type='button'>1</button>
-        <button id='two' class='buttons' class='nums' type='button'>2</button>
-        <button id='three' class='buttons' class='nums' type='button'>3</button>
-        <button id='add' class='buttons' class='operators' type='button'>+</button>
-        <button id='zero' class='buttons' class='nums' type='button'>0</button>
-        <button id='decimal' class='buttons' class='nums' type='button'>.</button>
-        <button id='equals' class='buttons' class='operators' type='button'>=</button>
+        <div id='displayBox'>
+            <div id='upperDisplay'></div>
+            <div id='lowerDisplay'></div>
+        </div>
+        <button value='clear' class='buttons' type='button'>clear</button>
+        <button value='posNeg' class='buttons' type='button'>+/-</button>
+        <button value='percent' class='buttons' type='button'>%</button>
+        <button value='divide' class='buttons' type='button'>/</button>
+        <button value='seven' class='buttons nums' type='button'>7</button>
+        <button value='eight' class='buttons nums' type='button'>8</button>
+        <button value='nine' class='buttons nums' type='button'>9</button>
+        <button value='multiply' class='buttons' type='button'>X</button>
+        <button value='four' class='buttons nums' type='button'>4</button>
+        <button value='five' class='buttons nums' type='button'>5</button>
+        <button value='six' class='buttons nums' type='button'>6</button>
+        <button value='minus' class='buttons' type='button'>-</button>
+        <button value='one' class='buttons nums' type='button'>1</button>
+        <button value='two' class='buttons nums' type='button'>2</button>
+        <button value='three' class='buttons nums' type='button'>3</button>
+        <button value='add' class='buttons' type='button'>+</button>
+        <button value='zero' class='buttons nums' id='zero' type='button'>0</button>
+        <button value='decimal' class='buttons' type='button'>.</button>
+        <button value='equals' class='buttons' type='button'>=</button>
     </div>
     <script src='calculator.js'></script>
 </body>
