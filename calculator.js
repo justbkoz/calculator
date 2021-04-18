@@ -1,11 +1,11 @@
 const buttons = document.getElementsByClassName('buttons')
 const nums = document.getElementsByClassName('nums')
 
-
 document.body.addEventListener('click', clicked);
 
 let oldWorkingNum = '';
 let workingNum = '';
+let totalDisplayed = false;
 
 const doMath = {
     '+': function (x, y) { return x + y },
@@ -17,8 +17,15 @@ const doMath = {
 
 function clicked(e) {
     if (e.target.className.match('nums')) {
-        workingNum += e.target.innerText;
-        document.getElementById('lowerDisplay').innerText = `${workingNum}`
+        if (totalDisplayed) {
+            workingNum = '';
+            workingNum += e.target.innerText;
+            document.getElementById('lowerDisplay').innerText = `${workingNum}`
+            totalDisplayed = false;
+        } else {
+            workingNum += e.target.innerText;
+            document.getElementById('lowerDisplay').innerText = `${workingNum}`
+        }
     }
     else if (e.target.value == 'clear') {
         workingNum = '';
@@ -37,7 +44,20 @@ function clicked(e) {
         console.log(e.target.innerText)
     }
     else if (e.target.value == 'minus') {
-        console.log(e.target.innerText)
+        if (workingNum == '') {
+            return;
+        } else if (oldWorkingNum == '') {
+            oldWorkingNum = `${workingNum} -`;
+            workingNum = '';
+            document.getElementById('lowerDisplay').innerText = `${workingNum}`
+        } else {
+            oldWorkingNum = `${oldWorkingNum} ${workingNum} -`
+            workingNum = '';
+            split = oldWorkingNum.split(' ');
+            let newNum = doMath[`${split[1]}`](parseFloat(split[0]), parseFloat(split[2]))
+            oldWorkingNum = `${newNum} -`;
+            document.getElementById('lowerDisplay').innerText = `${Number(newNum.toFixed(5))}`
+        }
     }
     else if (e.target.value == 'add') {
         if (workingNum == '') {
@@ -45,18 +65,13 @@ function clicked(e) {
         } else if (oldWorkingNum == '') {
             oldWorkingNum = `${workingNum} +`;
             workingNum = '';
-            document.getElementById('lowerDisplay').innerText = `${workingNum}`
-            document.getElementById('upperDisplay').innerText = `${oldWorkingNum}`;
-
         } else {
-            oldWorkingNum = `${oldWorkingNum} ${workingNum} +`
+            oldWorkingNum = `${oldWorkingNum} ${workingNum}`
             workingNum = '';
             split = oldWorkingNum.split(' ');
-            let newNum = doMath[`${split[1]}`](parseInt(split[0]), parseInt(split[2]))
+            let newNum = doMath[`${split[1]}`](parseFloat(split[0]), parseFloat(split[2]))
             oldWorkingNum = `${newNum} +`;
-            document.getElementById('lowerDisplay').innerText = `${newNum}`
-            document.getElementById('upperDisplay').innerText = `${newNum} +`;
-
+            document.getElementById('lowerDisplay').innerText = `${Number(newNum.toFixed(5))}`
         }
     }
     else if (e.target.value == 'decimal') { // need to limit this to one decimal
@@ -64,11 +79,21 @@ function clicked(e) {
         document.getElementById('lowerDisplay').innerText = `${workingNum}`
     }
     else if (e.target.value == 'equals') {
-        console.log(e.target.innerText)
+        if (workingNum == '') {
+            return;
+        } else if (oldWorkingNum == '') {
+            return;
+        } else {
+            totalDisplayed = true;
+            oldWorkingNum = `${oldWorkingNum} ${workingNum} =`
+            split = oldWorkingNum.split(' ');
+            let newNum = doMath[`${split[1]}`](parseFloat(split[0]), parseFloat(split[2]))
+            oldWorkingNum = ``;
+            document.getElementById('lowerDisplay').innerText = `${Number(newNum.toFixed(5))}`
+            workingNum = `${Number(newNum.toFixed(5))}`;
+        }
     }
     else console.log('dang it') //need to get rid of this...
+
+
 }
-
-
-// currently... every time I click + i add to the array.  I need the array to start over with just 
-// the newest numbers
