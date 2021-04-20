@@ -9,10 +9,8 @@ body {
 #calcContainer {
     background-color: cadetblue;
     margin: auto;
-    width: 50vmin;
-    min-width: 280px;
-    height: 70vmin;
-    min-height: 400px;
+    width: 400px;
+    height: 600px;
     padding: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -20,7 +18,7 @@ body {
     gap: .5% .5%;
     grid-template-areas:
         'disp disp disp disp'
-        '. . . .'
+        'clear clear . .'
         '. . . .'
         '. . . .'
         '. . . .'
@@ -37,18 +35,39 @@ body {
 }
 /* can still type in too many characters */
 #upperDisplay{ 
-    font-size: 2vmin;
+    font-size: 30px;
     overflow: hidden;
 }
 
 #lowerDisplay{
-    font-size: 8vmin;
+    font-size: 60px;
     overflow: hidden;
-    
+}
+
+#clear{
+    grid-area: clear;
+    font-size: 25px;
 }
 
 #zero { 
     grid-area: zero; 
 }
+
+.buttons{
+	background:linear-gradient(to bottom, #afbdd8 5%, #15437a 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	cursor: pointer;
+	color:#ffffff;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size:19px;
+	text-shadow:0px 1px 0px #283966;
+}
+button:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+
 
 
